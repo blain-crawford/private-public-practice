@@ -27,18 +27,6 @@ const alterCounter = {
 increaseButton.addEventListener('click', alterCounter.increaseOrDecrease.bind(increaseButton), false);
 decreaseButton.addEventListener('click', alterCounter.increaseOrDecrease.bind(decreaseButton), false)
 
-
-
-
-
-
-
-
-
-
-
-
-
 const h1 = document.createElement('h1');
 h1.textContent = '0';
 const nameButton = document.createElement('button');
