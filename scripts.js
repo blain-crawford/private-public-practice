@@ -94,10 +94,25 @@ const Character = (name, level, strength, healingAbility) => {
   };
 
   const receiveHealing = function (amount) {
-    health += amount;
+    let fullHealth = level / 4;
+    if(health <= fullHealth) {
+      if(fullHealth - health >= amount) {
+        health += amount
+      } else {
+        health = fullHealth;
+      }
+    }
   };
   const attack = function (enemy) {
-    enemy.takeDamage(attackStrength);
+    if(dead === false) {
+      if(enemy.getHealth() > 0 && enemy.getHealth() - attackStrength >= 0) {
+        enemy.takeDamage(attackStrength);
+      } else {
+        while(enemy.getHealth() > 0) {
+          enemy.takeDamage(1)
+        }
+      }
+  }
     console.log(`${name} has struck! for ${attackStrength} damage!`);
   };
 
@@ -132,23 +147,6 @@ const Character = (name, level, strength, healingAbility) => {
 
 let christina = Character('Christina', 100, 5, 20);
 let blain = Character('Blain', 120, 10, 10);
-// console.log(christina)
-console.log(blain.attack(christina));
-console.log(christina.attack(blain));
-console.log(christina.heal(christina));
-console.log(christina.heal(christina));
-console.log(christina.attack(blain));
-console.log(blain.attack(christina));
-console.log(christina.getHealth());
-console.log(blain.heal(blain));
-console.log(blain.heal(blain));
-console.log(blain.heal(blain));
-console.log(blain.getHealth());
-
-
-// console.log(christina.getHealth());
-// console.log(blain.getHealth())
-// console.log(christina.aliveOrDead());
 
 const christinaAttack = function () {
   christina.attack(blain);
