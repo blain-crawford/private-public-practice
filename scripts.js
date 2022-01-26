@@ -103,5 +103,5 @@ console.log(whoIsIt)
 body.appendChild(nameH1);
 body.appendChild(blainButton);
 body.appendChild(christinaButton);
-blainButton.addEventListener('click', whoIsIt.nameIsBlain.bind(blainButton), false);
+blainButton.addEventListener('click', whoIsIt.nameIsBlain, false);
 
