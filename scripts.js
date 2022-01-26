@@ -58,50 +58,25 @@ body.appendChild(neverButton);
 nameButton.addEventListener('click', nameSayer.sayIt.bind(nameButton), false);
 neverButton.addEventListener('click', nameSayer.sayIt.bind(neverButton), false);
 
-const nameH1 = document.createElement('h1');
-nameH1.textContent = 'Who is iiiiiiiit?'
-const blainButton = document.createElement('button');
-blainButton.textContent = 'Blain';
-const christinaButton = document.createElement('button');
-christinaButton.textContent = 'Christina';
-
-const blain = (name) => {
-  const nameIsBlain = () => {
-    h1.textContent = '';
-    h1.textContent = `${name}`;
-    console.log(`${name}`);
-  };
-  return {nameIsBlain};
-};
-
-const christina = (name) => {
-  const nameIsChristina = () => {
-    h1.textContent = '';
-    h1.textContent = `${name}`;
-    console.log(`${name}`);
-  };
-  return {nameIsChristina};
-};
-
-const blainOrChristina = (name) => { 
-  let {nameIsBlain} = blain(name);
-  let {nameIsChristina} = christina(name);
-  console.log(this);
-  if (this.textContent === 'Blain') {
-    nameIsBlain('Blain');
+const character = (name, level) => {
+  let health = level/4;
+  let attackStrength = Math.floor(health/5);
+  const getLevel = function () {return level}
+  const getName = function () {return name}
+  const attack = function (enemy) {
+    if (this.level > enemy.level) {
+      enemy.health -= attackStrength
+      console.log(`${this.name} has struck!`)
+    } else if (this.level < enemy.level) {
+      health -= enemy.attackStrength
+      console.log(`${this.name} recoils in pain lost ${enemy.attackStrength} health!`)
+    }
   }
-  if (this.textContent === 'Christina') {
-    nameIsChristina('Christina');
-  }
-  return {nameIsBlain, nameIsChristina};
+  return{getName, getLevel}
 };
-
-let whoIsIt = blainOrChristina();
-console.log(whoIsIt)
+  
 
 
-body.appendChild(nameH1);
-body.appendChild(blainButton);
-body.appendChild(christinaButton);
-blainButton.addEventListener('click', whoIsIt.nameIsBlain, false);
+let player1 = character('Christina', 100);
+console.log(player1.getName());
 
