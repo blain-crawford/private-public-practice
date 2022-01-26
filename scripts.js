@@ -51,8 +51,57 @@ const nameSayer = {
   }
 };
 
+
 body.appendChild(h1);
 body.appendChild(nameButton);
 body.appendChild(neverButton);
 nameButton.addEventListener('click', nameSayer.sayIt.bind(nameButton), false);
 neverButton.addEventListener('click', nameSayer.sayIt.bind(neverButton), false);
+
+const nameH1 = document.createElement('h1');
+nameH1.textContent = 'Who is iiiiiiiit?'
+const blainButton = document.createElement('button');
+blainButton.textContent = 'Blain';
+const christinaButton = document.createElement('button');
+christinaButton.textContent = 'Christina';
+
+const blain = (name) => {
+  const nameIsBlain = () => {
+    h1.textContent = '';
+    h1.textContent = `${name}`;
+    console.log(`${name}`);
+  };
+  return {nameIsBlain};
+};
+
+const christina = (name) => {
+  const nameIsChristina = () => {
+    h1.textContent = '';
+    h1.textContent = `${name}`;
+    console.log(`${name}`);
+  };
+  return {nameIsChristina};
+};
+
+const blainOrChristina = (name) => { 
+  let {nameIsBlain} = blain(name);
+  let {nameIsChristina} = christina(name);
+  console.log(this);
+  if (this.textContent === 'Blain') {
+    nameIsBlain('Blain');
+  }
+  if (this.textContent === 'Christina') {
+    nameIsChristina('Christina');
+  }
+  return {nameIsBlain, nameIsChristina};
+};
+
+let whoIsIt = blainOrChristina();
+console.log(whoIsIt)
+
+
+body.appendChild(nameH1);
+body.appendChild(blainButton);
+body.appendChild(christinaButton);
+blainButton.addEventListener('click', whoIsIt.nameIsBlain.bind(blainButton), false);
+
