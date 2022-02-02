@@ -192,5 +192,40 @@ christinaAttackButton.addEventListener('click', christinaAttack, false);
 blainHealButton.addEventListener('click', blainHeal, false);
 christinaHealButton.addEventListener('click', christinaHeal, false);
 
+class Checking {
+  constructor(name) {
+    let firstQuestion = prompt('What is your Name?', );
+    this.name = firstQuestion;
+  }
 
+  get name() {
+    return this._name
+  }
 
+  ['gimme' + 'Shout'] = () => {
+    alert(`${this._name} is the man!`)
+  }
+
+  set name(value) {
+    if (value.length < 1) {
+      alert('That ain\'t no name!')
+      let newQuestion = prompt('I SAID!  WHAT\'S YUR DAMN NAME!?', )
+      this._name = newQuestion
+      if(newQuestion.length < 1) {
+        alert('YUR DUN!')
+        return
+      } else {
+        this._name = newQuestion;
+        alert(`Ok then ${this._name}. . .jesus. . .`)
+        return
+      }
+    }
+    this._name = value;
+    alert(`Nice to meetcha then ${this._name}!`)
+    this.gimmeShout();
+  }
+
+  
+}
+
+let blain2 = new Checking();
