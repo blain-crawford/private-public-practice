@@ -242,6 +242,7 @@ let equalLateral = new EqualLateralTriangle(10);
 
 
 console.log(moment().startOf('day').fromNow());
+// console.log(moment().format('HH:MM:SS'))
 
 
 
