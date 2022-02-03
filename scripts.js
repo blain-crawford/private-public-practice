@@ -193,25 +193,43 @@ blainHealButton.addEventListener('click', blainHeal, false);
 christinaHealButton.addEventListener('click', christinaHeal, false);
 
 
-class RightTriangle {
+class Triangle {
+  isARightTriangle = true;
+  isEqualLateralTriangle = true;
+  
   constructor(a, b, c) {
     this.a = a
     this.b = b
     this.c = c
   }
 
-  get isRightTriangle() {
+  get checkIfIsRightTriangle() {
     return (this.a**2 + this.b**2) === this.c**2;
+  }
+
+  get checkIfIsEqualLateralTriangle() {
+    return a === b && b === c
+  }
+
+  set checkIfIsEqualLateralTriangle(isEqual) {
+    let isEqual = this.checkIfIsEqualLateralTriangle();
+    this.isEqualLateralTriangle = isEqual
+  }
+
+  set checkIfIsRightTriangle(isRight) {
+    let isRight = this.checkIfIsRightTriangle();
+    this.isARightTriangle = isRight;
   }
 }
 
-class EqualLateralTriangle extends RightTriangle {
+
+class EqualLateralTriangle extends Triangle {
   constructor(sidesLength) {
     super(sidesLength, sidesLength, sidesLength);
   }
 }
 
-let myTriangle = new RightTriangle(2, 2, 4);
+let myTriangle = new Triangle(2, 2, 64);
 let equalLateral = new EqualLateralTriangle(10);
 
 
