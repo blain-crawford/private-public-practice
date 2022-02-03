@@ -194,8 +194,6 @@ christinaHealButton.addEventListener('click', christinaHeal, false);
 
 
 class Triangle {
-  isARightTriangle = true;
-  isEqualLateralTriangle = true;
 
   constructor(a, b, c) {
     this.a = a
@@ -203,38 +201,32 @@ class Triangle {
     this.c = c
   }
 
+  get checkIfIsRightTriangle() {
+    return this.isRightTriangle = (this.a**2 + this.b**2) === this.c**2;
+  }
+
+  get checkIfIsEqualLateralTriangle() {
+    return this.isEqualLateralTriangle = this.a === this.b && this.b === this.c;
+  }
+
   setA(a) {
     this.a = a
-    checkIfIsRightTriangle()
+    this.checkIfIsEqualLateralTriangle
+    this.checkIfIsRightTriangle
   }
 
   setB(b) {
     this.b = b
-    checkIfIsRightTriangle()
+    this.checkIfIsEqualLateralTriangle
+    this.checkIfIsRightTriangle
   }
 
   setC(c) {
     this.c = c;
-    checkIfIsRightTriangle()
+    this.checkIfIsEqualLateralTriangle
+    this.checkIfIsRightTriangle
   }
 
-  get checkIfIsRightTriangle() {
-    return (this.a**2 + this.b**2) === this.c**2;
-  }
-
-  get checkIfIsEqualLateralTriangle() {
-    return this.a === this.b && this.b === this.c;
-  }
-
-  set checkIfIsEqualLateralTriangle(isEqual) {
-    isEqual = checkIfIsEqualLateralTriangle();
-    this.isEqualLateralTriangle = isEqual
-  }
-
-  set checkIfIsRightTriangle(isRight) {
-    isRight = checkIfIsRightTriangle();
-    this.isARightTriangle = isRight;
-  }
 }
 
 
