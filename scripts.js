@@ -1,4 +1,4 @@
-var moment = require('moment');
+import moment from 'moment';
 const h1Math = document.createElement('h1');
 h1Math.textContent = '0';
 const body = document.querySelector('body');
