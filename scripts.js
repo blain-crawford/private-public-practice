@@ -239,7 +239,7 @@ class EqualLateralTriangle extends Triangle {
 
 let myTriangle = new Triangle(2, 2, 64);
 let equalLateral = new EqualLateralTriangle(10);
-console.log(moment().startOf('day').fromNow());
+console.log(moment().format('hh:mm:ss'));
 
 
 
