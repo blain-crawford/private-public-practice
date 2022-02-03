@@ -194,10 +194,14 @@ christinaHealButton.addEventListener('click', christinaHeal, false);
 
 
 class RightTriangle {
-  constructor(length1, length2, length3) {
-    this.length1 = length1
-    this.length2 = length2
-    this.length3 = length3
+  constructor(a, b, c) {
+    this.a = a
+    this.b = b
+    this.c = c
+  }
+
+  get isRightTriangle() {
+    return (this.a**2 + this.b**2) === this.c**2;
   }
 }
 
@@ -207,7 +211,7 @@ class EqualLateralTriangle extends RightTriangle {
   }
 }
 
-let myTriangle = new RightTriangle(4, 67, 2);
+let myTriangle = new RightTriangle(2, 2, 4);
 let equalLateral = new EqualLateralTriangle(10);
 
 
